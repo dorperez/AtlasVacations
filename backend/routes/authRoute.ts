@@ -70,7 +70,7 @@ const authRoute = async (app: any, db: mysql.Connection) => {
                 return res.status(400).json({ msg: "Incorrect Password" })
             }
 
-            const token = jwt.sign({ email, name: user.name, role: user.role }, process.env.MYSECRET || "", { expiresIn: "1h" })
+            const token = jwt.sign({ email, name: user.name, role: user.role }, process.env.MYSECRET || "MYSECRET", { expiresIn: "1h" })
 
             res.status(200).json({ msg: "User logged in successfully", data: token })
         } catch (err: any) {
@@ -109,7 +109,7 @@ const authRoute = async (app: any, db: mysql.Connection) => {
         }
 
         try {
-            jwt.verify(token, process.env.MYSECRET || ""); // Will throw an error if the token is expired
+            jwt.verify(token, process.env.MYSECRET || "MYSECRET"); // Will throw an error if the token is expired
             res.status(200).json({ msg: "Token is valid", data: "valid" });
         } catch (err: any) {
             if (err.name === 'TokenExpiredError') {
