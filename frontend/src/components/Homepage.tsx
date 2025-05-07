@@ -243,16 +243,17 @@ const Homepage = () => {
                     const bDuration = new Date(b.endDate).getTime() - new Date(b.startDate).getTime()
                     return aDuration - bDuration
                 })
-            case 9:
-                return [...result].sort((a, b) => a.title.localeCompare(b.title))
-
-
-            default: // Most Liked Vacations
-            return [...result].sort((a, b) => {
+            case 9: // Most Liked Vacations
+                return [...result].sort((a, b) => {
                     const aLikes = allVacationsFollowersList.filter(f => f.vacationID === a.vacationID).length
                     const bLikes = allVacationsFollowersList.filter(f => f.vacationID === b.vacationID).length
                     return bLikes - aLikes
                 })
+                
+
+
+             default: //By Name
+            return [...result].sort((a, b) => a.title.localeCompare(b.title))
         }
     }, [searchFilteredVacations, filterType, userLikedVacationsList])
 
@@ -403,7 +404,7 @@ const Homepage = () => {
                         <div className="filterContainer">
                             <BsSortDownAlt className="sortIcon" />
                             <select value={filterType} onChange={handleFilterChange}>
-                                <option value={0}>Popular</option>
+                                <option value={0}>Name</option>
                                 <option value={1}>Price (Lower To Higher)</option>
                                 <option value={2}>Price (Higher To Lower)</option>
                                 <option value={3}>Upcoming Vacations</option>
@@ -412,7 +413,7 @@ const Homepage = () => {
                                 <option value={6}>Passed Vacations</option>
                                 <option value={7}>Longest Vacations</option>
                                 <option value={8}>Shortest Vacations</option>
-                                <option value={9}>Name</option>
+                                <option value={9}>Most Liked</option>
                             </select>
                             {searchQuery !== "" || filterType !== 0 ? <button onClick={handleClearButton}>Clear</button> : <></>}
                         </div>
