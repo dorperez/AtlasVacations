@@ -1,0 +1,324 @@
+@use "./appColors" as *;
+
+// Login Register
+.loginRegisterPageContainer {
+    background-color: var(--background-color-rgb);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .registerLoginContainer {
+        margin: 0 auto;
+        box-sizing: border-box;
+        height: 100%;
+        align-items: stretch;
+        max-width: 1100px;
+        width: 100%;
+        background-color: var(--background-color-rgb);
+        border-radius: 12px;
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 40px;
+        box-shadow: 0 0 8px 1px rgba(var(--text-color-rgb), 0.1);
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--on-primary-color);
+        }
+
+        .imageContainer {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            video {
+                height: 600px;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 12px;
+                margin: 20px;
+            }
+        }
+
+        .contentContainer {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+
+            .registerLoginButtonsContainer {
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+                align-items: center;
+                text-align: center;
+                border-radius: 8px;
+                background-color: var(--background-color-rgb);
+
+                p {
+                    font-size: 20px;
+                    font-weight: bold;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .actionContainer {
+                    width: 100%;
+
+                    p {
+                        transition: color 0.4s ease-in-out;
+                        color: rgba(128, 128, 128, 0.5);
+                    }
+                }
+
+                .actionContainer.active {
+                    p {
+                        color: var(--on-primary-color);
+                    }
+                }
+            }
+
+            h2 {
+                margin-top: 30px;
+                color: var(--on-primary-color);
+                font-size: 35px;
+            }
+
+            .loginContainer,
+            .registerContainer,
+            .forgotPasswordContainer {
+                width: 100%;
+                margin-top: 40px 0px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h2 {
+                    margin: 15px 0px;
+                    font-size: 24px;
+                    color: var(--text-color);
+                }
+
+                .forgotPasswordEmailInput {
+                    text-align: center;
+                }
+
+                .forgotPasswordTitlesContainer {
+                    margin-top: 50px;
+                    line-height: 18px;
+                    text-align: center;
+
+                    h2 {
+                        color: var(--text-color);
+                    }
+
+                    p {
+                        margin-top: 12px;
+                        font-size: 10px;
+                        color: gray;
+                    }
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 20px;
+
+                    // Login Input Error
+                    .loginEmail.error {
+                        border-color: rgba(255, 0, 0, 0.4);
+                        box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.4);
+                        outline: none;
+                    }
+
+                    .loginPassword.error {
+                        border-color: rgba(255, 0, 0, 0.4);
+                        box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.4);
+                        outline: none;
+                    }
+
+                    // Register Input Error
+                    .isNameValid.error {
+                        border-color: rgba(255, 0, 0, 0.4);
+                        box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.4);
+                        outline: none;
+                    }
+
+                    .isLastName.error {
+                        border-color: rgba(255, 0, 0, 0.4);
+                        box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.4);
+                        outline: none;
+                    }
+
+                    .isEmailValidRegister.error {
+                        border-color: rgba(255, 0, 0, 0.4);
+                        box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.4);
+                        outline: none;
+                    }
+
+                    .isPasswordValidRegister.error {
+                        border-color: rgba(255, 0, 0, 0.4);
+                        box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.4);
+                        outline: none;
+                    }
+
+                    .isConfirmPasswordValid.error {
+                        border-color: rgba(255, 0, 0, 0.4);
+                        box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.4);
+                        outline: none;
+                    }
+
+                    .buttonContainer {
+                        width: 50%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top: 35px;
+                        
+                        .errorP{
+                            text-align: center;
+                        }
+
+                        button {
+                            width: 100%;
+                            padding: 20px;
+                            border: 0px;
+                            border-radius: 12px;
+                            background-color: var(--primary-color);
+                            transition: all 0.4s ease;
+                            color: var(--background-color);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+
+                            &:hover {
+                                cursor: pointer;
+                                border-color: var(--on-primary-color);
+                                box-shadow: 0 0 7px 3px var(--on-primary-color);
+                                outline: none;
+                            }
+
+                            // Loader
+                            .spinner {
+                                border: 3px solid #f3f3f3;
+                                border-top: 3px solid var(--on-primary-color);
+                                border-radius: 50%;
+                                width: 16px;
+                                height: 16px;
+                                animation: spin 2s linear infinite;
+                            }
+
+                            @keyframes spin {
+                                0% {
+                                    transform: rotate(0deg);
+                                }
+
+                                100% {
+                                    transform: rotate(360deg);
+                                }
+                            }
+                        }
+
+                        button:disabled {
+                            background-color: #ccc;
+                            cursor: not-allowed;
+                        }
+
+                        .forgotPassword {
+                            margin-top: 15px;
+                            font-size: 12px;
+                            font-weight: 300;
+                            color: var(--on-primary-color);
+                            cursor: pointer;
+                            text-align: center;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .loginContainer,
+            .registerContainer,
+            .forgotPasswordContainer {
+                display: none;
+            }
+
+            .loginContainer.active,
+            .registerContainer.active,
+            .forgotPasswordContainer.active {
+                animation: fade-in 2.0s;
+                display: flex;
+            }
+
+            @keyframes fade-in {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 100;
+                }
+            }
+        }
+    }
+}
+
+// For smaller screens (tablets and below)
+@media (max-width: 1024px) {
+    input {
+        width: 80% !important;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 700px) {
+    h2 {
+        font-size: 24px !important;
+    }
+
+    .loginRegisterPageContainer {
+        padding: 10px;
+
+        .registerLoginContainer {
+            grid-template-columns: 1fr !important;
+            height: auto !important;
+            padding: 20px !important;
+
+            input {
+                width: 80% !important;
+            }
+        }
+
+        .imageContainer {
+            height: auto !important;
+            margin-top: 80px !important;
+            padding: 0px !important;
+
+            img {
+                padding: 20px !important;
+                border-radius: 50px !important;
+            }
+
+        }
+    }
+}

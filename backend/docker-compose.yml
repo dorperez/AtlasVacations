@@ -1,0 +1,43 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: vacationsDatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3206:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+
+  node_app:
+    build: .
+    container_name: node_app
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app:cached
+      - /usr/src/app/node_modules     # Prevents local node_modules from overwriting container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    command: ["npm", "run", "dev"]
+    environment:
+      - IS_DOCKER=true
+
+volumes:
+  mysql_data:

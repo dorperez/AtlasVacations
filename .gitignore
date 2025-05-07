@@ -1,0 +1,8 @@
+# Node Modules
+/backend/node_modules
+/backend/upload.sh
+/backend/AtlasVacationsKey.pem
+/frontend/node_modules
+
+# ENV
+/backend/.env

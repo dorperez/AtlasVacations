@@ -1,0 +1,519 @@
+.userProfilePageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    min-height: 400px;
+    background-color: var(--background-color);
+
+    .cardContainer {
+        background: var(--background-color);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(var(--text-color-rgb), 0.08);
+        width: 40%;
+
+        .profileTitle {
+            font-size: 24px;
+            color: var(--on-primary-color);
+            margin-bottom: 24px;
+            text-align: center;
+            border-bottom: 2px solid var(--gray-color);
+            padding-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .profileInfo {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 32px;
+        }
+
+        .infoRow {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            color: #444;
+
+            .label {
+                font-weight: 600;
+                color: var(--text-color);
+            }
+
+            .value {
+                font-weight: 400;
+                text-align: right;
+                color: var(--text-color);
+            }
+        }
+    }
+
+    .followedVacationsSection {
+        margin-top: 32px;
+        border-top: 2px solid var(--gray-color);
+        padding-top: 28px;
+
+        a,
+        p,
+        span {
+            text-decoration: none;
+            color: var(--text-color);
+
+        }
+
+        .sectionTitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .vacationsList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .vacationItem {
+            display: flex;
+            background-color: var(--background-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 1;
+            transform: translateY(0);
+
+
+            &:hover {
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+            }
+
+            .vacationImage {
+                width: 100px;
+                height: 100%;
+                object-fit: cover;
+                flex-shrink: 0;
+            }
+
+            .vacationContent {
+                flex: 1;
+                padding: 12px 16px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .vacationDestination {
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--secondary-color);
+                margin: 0 0 6px;
+            }
+
+            .vacationDates {
+                font-size: 14px;
+                color: #666;
+                display: flex;
+                align-items: center;
+                margin-bottom: 6px;
+
+                .dateWrapper {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .dateIcon {
+                    margin-right: 4px;
+                    font-size: 12px;
+                }
+
+                .dateSeparator {
+                    margin: 0 8px;
+                    color: #aaa;
+                }
+            }
+
+            .vacationPrice {
+                font-weight: 600;
+                color: #2e7d32;
+                font-size: 15px;
+                margin-top: auto;
+            }
+        }
+
+        .vacationItem.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    .removeFromLikedButton {
+        background-color: transparent;
+        border: 1px solid #e74c3c;
+        color: #e74c3c;
+        margin-top: 12px;
+        padding: 8px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #c0392b;
+                transform: scale(1.03);
+                color: white;
+        }
+    }
+
+}
+
+// Responsive breakpoints
+.userProfilePageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: var(--background-color);
+
+    .cardContainer {
+        background: var(--background-color);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(var(--text-color-rgb), 0.08);
+        width: 40%;
+
+        .profileTitle {
+            font-size: 24px;
+            color: var(--on-primary-color);
+            margin-bottom: 24px;
+            text-align: center;
+            border-bottom: 2px solid var(--gray-color);
+            padding-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .profileInfo {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 32px;
+        }
+
+        .infoRow {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            color: #444;
+
+            .label {
+                font-weight: 600;
+                color: var(--text-color);
+            }
+
+            .value {
+                font-weight: 400;
+                text-align: right;
+                color: var(--text-color);
+            }
+        }
+    }
+
+    .followedVacationsSection {
+        margin-top: 32px;
+        border-top: 2px solid var(--gray-color);
+        padding-top: 28px;
+
+        a,
+        p,
+        span {
+            text-decoration: none;
+            color: var(--text-color);
+
+        }
+
+        .sectionTitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .vacationsList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .vacationItem {
+            display: flex;
+            background-color: var(--background-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 1;
+            transform: translateY(0);
+
+
+            &:hover {
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+            }
+
+            .vacationImage {
+                width: 100px;
+                height: 100%;
+                object-fit: cover;
+                flex-shrink: 0;
+            }
+
+            .vacationContent {
+                flex: 1;
+                padding: 12px 16px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .vacationDestination {
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--secondary-color);
+                margin: 0 0 6px;
+            }
+
+            .vacationDates {
+                font-size: 14px;
+                color: #666;
+                display: flex;
+                align-items: center;
+                margin-bottom: 6px;
+
+                .dateWrapper {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .dateIcon {
+                    margin-right: 4px;
+                    font-size: 12px;
+                }
+
+                .dateSeparator {
+                    margin: 0 8px;
+                    color: #aaa;
+                }
+            }
+
+            .vacationPrice {
+                font-weight: 600;
+                color: #2e7d32;
+                font-size: 15px;
+                margin-top: auto;
+            }
+        }
+
+        .vacationItem.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    .removeFromLikedButton {
+        background-color: transparent;
+        border: 1px solid #e74c3c;
+        color: #e74c3c;
+        margin-top: 12px;
+        padding: 4px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #c0392b;
+                transform: scale(1.03);
+                color: white;
+        }
+    }
+}
+
+// Responsive breakpoints
+@media (max-width: 3200px) {
+    .userProfilePageContainer {
+        padding: 30px;
+        
+        .cardContainer {
+            width: 50%;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .userProfilePageContainer {
+        padding: 25px;
+        
+        .cardContainer {
+            width: 60%;
+            padding: 30px;
+            
+            .profileTitle {
+                font-size: 22px;
+            }
+        }
+        
+        .followedVacationsSection {
+            .vacationItem {
+                .vacationDestination {
+                    font-size: 15px;
+                }
+                
+                .vacationDates {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .userProfilePageContainer {
+        .cardContainer {
+            width: 70%;
+            padding: 25px;
+        }
+        
+        .followedVacationsSection {
+            .vacationsList {
+                gap: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .userProfilePageContainer {
+        padding: 20px;
+        height: auto;
+        min-height: 100vh;
+        
+        .cardContainer {
+            width: 85%;
+            padding: 20px;
+            
+            .profileTitle {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .infoRow {
+                font-size: 15px;
+            }
+        }
+        
+        .followedVacationsSection {
+            margin-top: 25px;
+            padding-top: 20px;
+            
+            .sectionTitle {
+                font-size: 17px;
+                margin-bottom: 15px;
+            }
+            
+            .vacationItem {
+                .vacationImage {
+                    width: 80px;
+                }
+                
+                .vacationContent {
+                    padding: 10px 12px;
+                }
+                
+                .vacationPrice {
+                    font-size: 14px;
+                }
+            }
+        }
+        
+        .removeFromLikedButton {
+            padding: 4px 16px;
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 728px) {
+    .userProfilePageContainer {
+        padding: 15px;
+        
+        .cardContainer {
+            width: 95%;
+            padding: 15px;
+            
+            .profileTitle {
+                font-size: 18px;
+                padding-bottom: 10px;
+                margin-bottom: 15px;
+            }
+            
+            .profileInfo {
+                gap: 12px;
+                margin-bottom: 20px;
+            }
+            
+            .infoRow {
+                font-size: 14px;
+                flex-direction: column;
+                gap: 4px;
+                
+                .value {
+                    text-align: center;
+                }
+            }
+        }
+        
+        .followedVacationsSection {
+            margin-top: 20px;
+            padding-top: 15px;
+            
+            .vacationsList {
+                gap: 15px;
+            }
+            
+            .vacationItem {
+                flex-direction: column;
+                
+                .vacationImage {
+                    width: 100%;
+                    height: 140px;
+                }
+                
+                .vacationDates {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 5px;
+                    
+                    .dateSeparator {
+                        display: none;
+                    }
+                }
+            }
+            
+            .removeFromLikedButton {
+                width: 100%;
+                margin-top: 8px;
+            }
+        }
+    }
+}

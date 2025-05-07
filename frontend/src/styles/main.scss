@@ -1,0 +1,529 @@
+@use "./appColors" as *;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+.appRoot{
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+// General
+button {
+  font-family: 'Quicksand', sans-serif;
+
+  // Loader
+  .spinner {
+    width: 100%;
+    border: 3px solid var(--background-color);
+    border-top: 3px solid var(--on-primary-color);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.errorP {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--on-primary-color);
+}
+
+.spacer {
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  margin: 10px 0px;
+}
+
+// Loader
+.pageLoaderContainer {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--background-color);
+  
+  .pageLoader {
+      border: 3px solid var(--primary-color);
+      border-top: 3px solid var(--on-primary-color);
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+      0% {
+          transform: rotate(0deg);
+      }
+
+      100% {
+          transform: rotate(360deg);
+      }
+  }
+}
+
+input {
+  width: 50%;
+  padding: 12px;
+  border-radius: 4px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(128, 128, 128, 0.384);
+  margin: 8px 0px;
+  text-align: center;
+
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 3px 1px var(--primary-color);
+    outline: none;
+  }
+}
+
+.pageSpinnerContainer {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+
+  .pageSpinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--on-primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
+// Nav
+.navBarRoot {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0px;
+  position: relative;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin-bottom: 90px;
+
+  .navContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 99999;
+
+    .buttonsContainer {
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      right: 30px;
+      top: 30px;
+
+      a {
+        text-decoration: none;
+      }
+
+      .addNewVacationContainer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: 2px solid var(--secondary-color);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--secondary-color);
+        background: transparent;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--secondary-color);
+          color: white;
+        }
+
+        .addIcon {
+          width: 25px;
+          height: 15px;
+        }
+      }
+
+      .userProfileContainer {
+        display: flex;
+        position: relative;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: 2px solid var(--secondary-color);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--secondary-color);
+        background: transparent;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--secondary-color);
+          color: white;
+        }
+
+        .userIcon {
+          width: 25px;
+          height: 15px;
+        }
+
+        .dropDownMenu {
+          position: absolute;
+          top: 100%;
+          margin-top: 12px;
+          right: 0;
+          background: white;
+          border: 1px solid var(--secondary-color);
+          border-radius: 8px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(10px);
+          transition: all 0.3s ease-in-out;
+          z-index: 99;
+
+          &.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            background-color: var(--background-color);
+          }
+
+          a {
+            text-decoration: none;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+
+            li {
+              padding: 12px 15px;
+              font-size: 14px;
+              font-weight: 500;
+              color: var(--secondary-color);
+              text-align: center;
+              text-decoration: none;
+
+              &:hover {
+                background: var(--secondary-color);
+                color: white;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .waveContainer {
+    position: absolute;
+    width: 100%;
+    bottom: -60px;
+    overflow: hidden;
+    background-color: var(--background-color);
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 60px;
+    }
+
+    .wave {
+      animation: waveAnimation 6s infinite ease-in-out;
+      width: 100%;
+      height: 60px;
+    }
+
+    .wavy {
+      transform: scaleY(-1);
+    }
+
+    @keyframes waveAnimation {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-24px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .floatingClouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+
+    .cloud {
+      position: absolute;
+      top: 10px;
+      opacity: 0.6;
+      width: 100px;
+      animation: floatCloud 60s linear infinite;
+
+      &.cloud1 {
+        height: 40px;
+        width: 150px;
+        top: 10px;
+        left: -150px;
+        animation-delay: 0s;
+        color: var(--secondary-color);
+        opacity: 0.3;
+      }
+
+      &.cloud2 {
+        height: 40px;
+        width: 120px;
+        top: 30px;
+        left: -180px;
+        animation-delay: 7s;
+        color: var(--secondary-color);
+        opacity: 0.3;
+      }
+
+      &.cloud3 {
+        height: 35px;
+        width: 100px;
+        top: 60px;
+        left: -200px;
+        animation-delay: 17s;
+        color: var(--secondary-color);
+        opacity: 0.3;
+      }
+
+      &.cloud4 {
+        height: 40px;
+        width: 140px;
+        top: 20px;
+        left: -220px;
+        animation-delay: 38s;
+        color: var(--secondary-color);
+        opacity: 0.3;
+      }
+
+      &.cloud5 {
+        height: 30px;
+        width: 110px;
+        top: 70px;
+        left: -160px;
+        animation-delay: 52s;
+        color: var(--secondary-color);
+        opacity: 0.3;
+      }
+    }
+  }
+
+  @keyframes floatCloud {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(120vw);
+    }
+  }
+
+  .navBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    height: 100px;
+    text-decoration: none;
+
+    li {
+      text-decoration: none;
+      padding: 12px;
+    }
+
+    a {
+      text-decoration: none;
+      padding: 12px;
+
+      p {
+        font-weight: 700;
+        font-size: 25px;
+        color: var(--secondary-color);
+        transition: color 0.5s, border-bottom 0.5s;
+        border-bottom: 3px solid transparent;
+        padding-bottom: 10px;
+
+        &:hover {
+          color: var(--on-primary-color);
+          text-shadow: 0px 0px 1px var(--on-primary-color);
+          border-bottom: 2px solid var(--on-primary-color);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+// Logout
+.logoutContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h4,h2 {
+    color: var(--text-color);
+  }
+}
+
+//Tablets Display 
+@media (max-width: 1323px) {
+  .navBarRoot {
+    .navContainer {
+      justify-content: start;
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+  }
+}
+
+// Mobile Display
+@media (max-width: 1055px) {
+  .navBarRoot {
+
+    a {
+      text-decoration: none;
+      padding: 0px;
+
+      p {
+        font-size: 25px !important;
+      }
+    }
+
+    .navContainer {
+      flex-direction: column;
+
+      .buttonsContainer {
+        position: static;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin: 30px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 590px) {
+  .navBarRoot {
+    .navBar {
+      gap: 50px;
+
+      a {
+        text-decoration: none;
+        padding: 0px;
+
+        p {
+          font-size: 18px !important;
+        }
+      }
+    }
+
+    .navContainer {
+      flex-direction: column;
+      margin-left: 20px;
+      margin-right: 20px;
+
+      .buttonsContainer {
+        position: static;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin: 30px 0;
+      }
+    }
+  }
+
+  .userProfileContainer {
+    text-align: center;
+  }
+}
+
+@media (max-width: 373px) {
+  .navBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+
+    a {
+      p {
+        font-size: 20px !important;
+      }
+    }
+  }
+}

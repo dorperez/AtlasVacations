@@ -1,0 +1,245 @@
+@use "./appColors" as *;
+
+.homepageContainer {
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    .contentContainer {
+        position: relative;
+        overflow: hidden;
+
+        .topBarContainer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // background-color: rgba(190, 190, 190, 0.3);
+            border-bottom: 1px solid rgba(190, 190, 190, 0.6);
+
+            .showingItemsContainer {
+                display: flex;
+                align-self: center;
+                flex-wrap: wrap;
+                padding: 5px 30px;
+
+                h5 {
+                    margin: 0px;
+                    padding: 0px;
+                    color: var(--text-color);
+                }
+            }
+
+            .searchAndFilterBarContainer {
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                height: 70px;
+                gap: 20px;
+                padding: 5px 30px;
+
+                h5 {
+                    text-align: right;
+                }
+
+                .searchContainer,
+                .filterContainer {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    input {
+                        width: 200px;
+                        padding: 12px;
+                        border-radius: 4px;
+                        color: var(--text-color);
+                        background-color: var(--background-color);
+                        transition: all 0.4s ease;
+                        border: 1px solid rgba(128, 128, 128, 0.384);
+                        margin: 8px 12px;
+                        text-align: center;
+
+                        &:focus {
+                            border-color: var(--primary-color);
+                            box-shadow: 0 0 1px 1px var(--primary-color);
+                            outline: none;
+                        }
+                    }
+
+                    select {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 12px;
+                        border-radius: 4px;
+                        color: var(--text-color);
+                        background-color: var(--background-color);
+                        border: 1px solid rgba(128, 128, 128, 0.384);
+                        margin: 8px 12px;
+                        text-align: center;
+                        transition: all 0.4s ease;
+                        
+                        &:focus {
+                            border-color: var(--primary-color);
+                            box-shadow: 0 0 1px 1px var(--primary-color);
+                            outline: none;
+                        }
+
+                        option {
+                            width: 100%;
+
+                        }
+                    }
+
+                    .searchIcon {
+                        color: var(--secondary-color);
+                        font-size: 20px;
+
+                    }
+
+                    .sortIcon {
+                        color: var(--secondary-color);
+                        font-size: 20px;
+                    }
+                }
+
+                button {
+                    margin-left: 20px;
+                    padding: 12px 16px;
+                    border: none;
+                    border-radius: 4px;
+                    background-color: var(--on-primary-color);
+                    color: white;
+                    cursor: pointer;
+                    transition: background-color 0.2s;
+
+                    &:hover:not(:disabled) {
+                        background-color: var(--secondary-color);
+                    }
+
+                    &:disabled,
+                    &.disabled {
+                        background-color: #cccccc;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+
+        .vacationsContainer {
+            display: grid;
+            gap: 16px;
+            margin-top: 40px;
+            justify-items: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+
+            &.fading {
+                opacity: 0.4;
+            }
+
+            .emptyVacationListContainer {
+                grid-column: 1 / -1;
+                /* span across all columns */
+                text-align: center;
+                font-size: 1.5rem;
+                color: #777;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 200px;
+                /* adjust height to center vertically */
+            }
+        }
+
+        .paginationButtonsContainer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 70px 0px;
+
+            button {
+                padding: 12px 16px;
+                border: none;
+                border-radius: 4px;
+                background-color: var(--on-primary-color);
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.2s;
+
+                &:hover:not(:disabled) {
+                    background-color: var(--secondary-color);
+                }
+
+                &:disabled,
+                &.disabled {
+                    background-color: var(--gray-color);
+                    cursor: not-allowed;
+                }
+            }
+
+            span {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+// Responsive breakpoints
+@media (max-width: 3200px) {
+    .vacationsContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1200px) {
+    .vacationsContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .vacationsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .vacationsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 728px) {
+
+    .contentContainer {
+        position: static;
+        overflow: visible;
+    }
+
+    .vacationsContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .topBarContainer {
+        height: 200px;
+        flex-direction: column;
+        height: 220px;
+
+
+        .searchAndFilterBarContainer {
+            flex-direction: column;
+            background-color: var(--background-color);
+
+            .filterContainer,
+            .searchContainer {
+                flex-wrap: nowrap;
+            }
+        }
+    }
+
+
+
+}

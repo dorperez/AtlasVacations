@@ -1,0 +1,28 @@
+// $primaryColor: #93CDDD;
+// $onPrimaryColor: #42A7C3;
+// $secondaryColor: #328399;
+// $backgroundColor: #f0f4f5;
+// $textColor: #000;
+// $grayColor: #808080;
+
+:root {
+    --primary-color:    #93CDDD;
+    --on-primary-color: #42A7C3;
+    --secondary-color:  #328399;
+    --background-color: #f0f4f5;
+    --background-color-rgb: 240 ,244, 245;
+    --text-color:       #000000;
+    --text-color-rgb:       0,0,0;
+    --gray-color:       #808080;
+  }
+  
+  [data-theme='dark'] {
+    --primary-color:    #93CDDD;
+    --on-primary-color: #42A7C3;
+    --secondary-color:  #328399;
+    --background-color: #242424;
+    --background-color-rgb: 36, 36, 36;
+    --text-color:       #bbb;
+    --text-color-rgb:       187,187,187;
+    --gray-color:       #919090;
+  }

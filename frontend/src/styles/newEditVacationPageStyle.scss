@@ -1,0 +1,195 @@
+@use "./appColors" as *;
+
+.newVacationAndPreviewContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    padding-bottom: 100px;
+    
+    .newVacationDetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        min-height: 700px;
+
+        h1{
+            color: var(--on-primary-color);
+        }
+
+        .inputRow {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            input {
+                align-self: center;
+                text-align: center;
+            }
+
+            .imagePreview {
+                margin-top: 20px;
+            }
+
+            .vacationStartDateInput,
+            .vacationEndDateInput {
+                cursor: pointer;
+            }
+
+            .uploadImageButtonContainer {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                text-align: center;
+
+                .uploadImageButton {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 12px 24px;
+                    background-color: #42a7c393;
+                    border: 0;
+                    border-radius: 8px;
+                    white-space: nowrap;
+                    transition: all 0.5s ease;
+
+                    &:hover {
+                        cursor: pointer;
+                        box-shadow: 0px 0px 1px 1px #42A7C3;
+                        background-color: #42A7C3;
+                    }
+                }
+
+                .vacationImagePreview {
+                    width: 220px;
+                    height: 140px;
+                    border-radius: 8px;
+                    object-fit: cover;
+                    display: block;
+                    margin-top: 20px;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .buttonContainer {
+            width: 100%;
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            button {
+                width: 50%;
+                padding: 16px;
+                border-radius: 8px;
+                border: 0px;
+                background-color: var(--on-primary-color);
+                font-weight: bold;
+                font-size: 16px;
+                transition: color 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease, transform 0.5s ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-self: center;
+
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: 0px 0px 1px 1px var(--on-primary-color);
+                    background-color: var(--secondary-color);
+
+                }
+            }
+        }
+
+        .uploadImageButton {
+            padding: 12px;
+            background-color: var(--on-primary-color);
+            border: 0;
+            border-radius: 8px;
+            margin-top: 12px;
+            transition: all 0.5s ease;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0px 0px 1px 1px var(--secondary-color);
+                background-color: var(--secondary-color);
+            }
+        }
+    }
+
+    .newVacationPreview {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-left: 2px solid rgba(gray, 0.1);
+
+        .vacationCardContainer {
+            width: 40%;
+            margin: 32px;
+            padding: 20px;
+            margin: 0;
+
+            img {
+                height: 50%;
+                object-fit: cover;
+                display: block;
+                border-radius: 8px;
+                height: 200px;
+            }
+
+            button {
+                margin-top: 20px;
+            }
+
+            .titleImageContainer {
+                height: auto;
+            }
+
+            h3 {
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 3200px) {
+    .inputRow {
+        width: 80% !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .inputRow {
+        width: 80% !important;
+    }
+}
+
+@media (max-width: 811px) {
+    .newVacationAndPreviewContainer{
+        grid-template-columns: 1fr;
+    }
+
+    .newVacationPreview{
+        margin-top: 50px;
+        padding-top: 80px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .inputRow {
+        width: 80%;
+    }
+}
+
+@media (max-width: 410px) {
+    .inputRow {
+        width: 80%;
+    }
+}
